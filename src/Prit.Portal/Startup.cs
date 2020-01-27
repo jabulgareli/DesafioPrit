@@ -13,6 +13,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Prit.Infra.Cross;
+using Prit.Infra.Data;
 using Prit.Portal.Identity;
 
 namespace Prit.Portal
@@ -42,6 +44,11 @@ namespace Prit.Portal
                   Configuration.GetConnectionString("Prit"),
                   sqlServerOptions => sqlServerOptions.EnableRetryOnFailure(3)));
 
+            services.AddDbContext<PritContext>(options =>
+              options.UseSqlServer(
+                  Configuration.GetConnectionString("Prit"),
+                  sqlServerOptions => sqlServerOptions.EnableRetryOnFailure(3)));
+
             services.AddIdentity<PritPortalUser, IdentityRole>()
             .AddEntityFrameworkStores<LoginContext>()
             .AddDefaultTokenProviders();
@@ -66,11 +73,11 @@ namespace Prit.Portal
                 options.Password.RequiredUniqueChars = 0;
             });
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);            
+            Bootstrap.RegisterAllServices(services);
 
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);            
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             if (env.IsDevelopment())
@@ -103,6 +110,11 @@ namespace Prit.Portal
                 .CreateScope())
             {
                 using (var context = serviceScope.ServiceProvider.GetService<LoginContext>())
+                {
+                    context.Database.Migrate();
+                }
+
+                using (var context = serviceScope.ServiceProvider.GetService<PritContext>())
                 {
                     context.Database.Migrate();
                 }

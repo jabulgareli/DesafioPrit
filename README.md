@@ -10,6 +10,7 @@ Mesmo que simples, a aplicação está dividida baseada nas sugestões do DDD pa
 - SQL Server
 - Identity
 - Bootstrap
+- Axios
 
 ## Como executar
 

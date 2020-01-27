@@ -24,7 +24,10 @@
 
 
   <ItemGroup>
+    <ProjectReference Include="..\Prit.Application\Prit.Application.csproj" />
     <ProjectReference Include="..\Prit.Domain\Prit.Domain.csproj" />
+    <ProjectReference Include="..\Prit.Infra.Cross\Prit.Infra.Cross.csproj" />
+    <ProjectReference Include="..\Prit.Infra.Data\Prit.Infra.Data.csproj" />
   </ItemGroup>
 
 </Project>

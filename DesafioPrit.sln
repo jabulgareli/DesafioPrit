@@ -5,19 +5,23 @@ VisualStudioVersion = 16.0.29509.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Web", "1 - Web", "{A8AF6916-304C-4F51-A445-8E2E58FF1624}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prit.Portal", "src\Prit.Portal\Prit.Portal.csproj", "{8AE690DF-B1DC-40F9-9344-78D40A263712}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Prit.Portal", "src\Prit.Portal\Prit.Portal.csproj", "{8AE690DF-B1DC-40F9-9344-78D40A263712}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{0B8F9FA1-9C00-4540-8001-63B3E929C7BD}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{32134AD6-EC72-4597-816C-009ECEAA83FE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prit.Domain", "src\Prit.Domain\Prit.Domain.csproj", "{7B037C9E-8A42-4E37-8DDF-6AEBCD1E16D0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Prit.Domain", "src\Prit.Domain\Prit.Domain.csproj", "{7B037C9E-8A42-4E37-8DDF-6AEBCD1E16D0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prit.Application", "src\Prit.Application\Prit.Application.csproj", "{4977E874-106C-49E2-AF7E-1271FA8300B4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Prit.Application", "src\Prit.Application\Prit.Application.csproj", "{4977E874-106C-49E2-AF7E-1271FA8300B4}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{BDE32F86-1411-4437-AB67-21418D6E201B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prit.Infra.Data", "src\Prit.Infra.Data\Prit.Infra.Data.csproj", "{ABE2CEE5-2EB1-4214-8A6D-96F1AC3E28A1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Prit.Infra.Data", "src\Prit.Infra.Data\Prit.Infra.Data.csproj", "{ABE2CEE5-2EB1-4214-8A6D-96F1AC3E28A1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5 - Cross", "5 - Cross", "{A18E1972-CC77-440F-876F-D9228BE11746}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prit.Infra.Cross", "src\Prit.Infra.Cross\Prit.Infra.Cross.csproj", "{48E09C9C-8161-4EF1-A502-B411B47CF74B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,6 +45,10 @@ Global
 		{ABE2CEE5-2EB1-4214-8A6D-96F1AC3E28A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ABE2CEE5-2EB1-4214-8A6D-96F1AC3E28A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ABE2CEE5-2EB1-4214-8A6D-96F1AC3E28A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{48E09C9C-8161-4EF1-A502-B411B47CF74B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48E09C9C-8161-4EF1-A502-B411B47CF74B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48E09C9C-8161-4EF1-A502-B411B47CF74B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48E09C9C-8161-4EF1-A502-B411B47CF74B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -50,6 +58,7 @@ Global
 		{7B037C9E-8A42-4E37-8DDF-6AEBCD1E16D0} = {32134AD6-EC72-4597-816C-009ECEAA83FE}
 		{4977E874-106C-49E2-AF7E-1271FA8300B4} = {0B8F9FA1-9C00-4540-8001-63B3E929C7BD}
 		{ABE2CEE5-2EB1-4214-8A6D-96F1AC3E28A1} = {BDE32F86-1411-4437-AB67-21418D6E201B}
+		{48E09C9C-8161-4EF1-A502-B411B47CF74B} = {A18E1972-CC77-440F-876F-D9228BE11746}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {018EFBE4-3F3E-4488-A9AF-C49CC7A2B9C1}

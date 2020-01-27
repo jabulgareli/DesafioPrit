@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Prit.Domain.Interfaces.Repositories
+namespace Prit.Application.Interfaces
 {
-    public interface IProductRepository
+    public interface IProductAppService
     {
         Task AddOrUpdateAsync(Product product);
         Task<IList<Product>> GetAllAsync();

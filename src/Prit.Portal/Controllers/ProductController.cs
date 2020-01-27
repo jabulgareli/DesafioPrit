@@ -4,15 +4,24 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Prit.Application.Interfaces;
 
 namespace Prit.Portal.Controllers
 {
     public class ProductController : Controller
     {
-        // GET: Product
-        public ActionResult Index()
+        private readonly IProductAppService _productAppService;
+
+        public ProductController(IProductAppService productAppService)
         {
-            return View();
+            _productAppService = productAppService;
+        }
+
+        public async Task<IActionResult> Index()
+        {
+            var products = await _productAppService.GetAllAsync();
+
+            return View(products);
         }
 
         // GET: Product/Details/5
