@@ -1,0 +1,19 @@
+version: "3.7"
+services:
+    sqlserver:
+        container_name: sqlserver
+        image: "mcr.microsoft.com/mssql/server"
+        environment:
+            SA_PASSWORD: "yourStrong(!)Password"
+            ACCEPT_EULA: "Y"
+        ports:
+            - "1433:1433"
+    prit-api:
+        container_name: prit-api
+        image: jabulgareli/prit-api
+        ports:
+            - "6001:80"
+        links:
+            - sqlserver
+        depends_on:
+            - sqlserver

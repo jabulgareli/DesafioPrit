@@ -28,6 +28,10 @@ namespace Prit.Infra.Data.Migrations
                         .IsRequired()
                         .HasMaxLength(150);
 
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(50);
+
                     b.Property<decimal>("Price")
                         .HasColumnType("DECIMAL(14,2)");
 

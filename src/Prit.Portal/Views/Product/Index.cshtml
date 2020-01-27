@@ -5,10 +5,18 @@
     ViewData["Title"] = "Index";
 }
 
-<h3>Produtos</h3>
+<div class="row justify-content-between">
+    <div class="col-4">
+        <h3>Produtos</h3>
+    </div>
+    <div class="col-2">
+        <button class="btn btn-primary btn-block" data-toggle="modal" data-target="#product-modal">Novo produto</button>
+    </div>
+</div>
+
 <hr />
 
-<table class="table">
+<table class="table mt-3">
     <thead class="thead-dark">
         <tr>
             <th scope="col">Id</th>
@@ -21,14 +29,75 @@
     <tbody>
         @foreach (var prod in Model)
         {
-        <tr>
-            <th scope="row">@prod.Id</th>
-            <td>@prod.Description</td>
-            <td>@prod.GetPriceToDisplay()</td>
-            <td data-id="@prod.Id"></td>
-        </tr>
+            <tr>
+                <th scope="row" width="10%">@prod.Id</th>
+                <td data-id="@prod.Id" data-property="Name">@prod.Name</td>
+                <td data-id="@prod.Id" data-property="Description">@prod.Description</td>
+                <td data-id="@prod.Id" data-property="Price" data-value="@prod.Price" width="15%">@prod.GetPriceToDisplay()</td>
+                <td class="text-right" width="15%">
+                    <button data-id="@prod.Id" class="btn btn-primary" data-toggle="modal" data-target="#product-modal">Editar</button>
+                    <button data-id="@prod.Id" class="btn btn-danger" data-toggle="modal" data-target="#delete-product-modal">Excluir</button>
+                </td>
+            </tr>
         }
     </tbody>
 </table>
 
 
+<div class="modal fade" id="product-modal" tabindex="-1" role="dialog" aria-labelledby="product-modal-title" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="product-modal-title">Cadastro de produtos</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <input type="hidden" class="form-control" id="product-id" placeholder="Código">
+
+                <div class="form-group">
+                    <label for="product-name">Nome</label>
+                    <input type="text" class="form-control" id="product-name" placeholder="Nome" data-val="true" data-val-maxlength="Tamanho máximo de 50 caracteres" data-val-maxlength-max="50" data-val-minlength="Tamanho mínimo de 5 caracteres" data-val-minlength-min="5" data-val-required="O nome é obrigatório" maxlength="50" value="">
+                    <span class="text-danger field-validation-valid" data-valmsg-for="product-name" data-valmsg-replace="true"></span>
+                </div>
+                <div class="form-group">
+                    <label for="product-description">Descrição</label>
+                    <input type="text" class="form-control" id="product-description" placeholder="Descrição" data-val="true" data-val-maxlength="Tamanho máximo de 150 caracteres" data-val-maxlength-max="150" data-val-minlength="Tamanho mínimo de 5 caracteres" data-val-minlength-min="5" data-val-required="A descrição é obrigatória" maxlength="150" value="">
+                    <span class="text-danger field-validation-valid" data-valmsg-for="product-description" data-valmsg-replace="true"></span>
+                </div>
+                <div class="form-group">
+                    <label for="product-price">Preço (R$)</label>
+                    <input type="number" min="0" value="0" step=".01" class="form-control" id="product-price" placeholder="R$" data-val="true" data-val-required="O preço é obrigatório">
+                    <span class="text-danger field-validation-valid" data-valmsg-for="product-price" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="btn-product-save">Salvar</button>
+                <button type="button" class="btn btn-light" data-dismiss="modal" id="btn-product-close">Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="delete-product-modal" tabindex="-1" role="dialog" aria-labelledby="delete-product-modal-title" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="delete-product-modal-title">Apagar produto</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <input type="hidden" class="form-control" id="delete-product-id" placeholder="Código">
+
+                <div id="delete-message"></div>
+                <input type="text" id="product-id-confirm-delete" />
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" id="btn-product-delete" disabled>Excluir</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -23,6 +23,10 @@ namespace Prit.Infra.Data.EntityMap
                 .HasMaxLength(150)
                 .IsRequired();
 
+            builder.Property(model => model.Name)
+               .HasMaxLength(50)
+               .IsRequired();
+
             builder.Property(model => model.Price)
                 .HasColumnType("DECIMAL(14,2)")
                 .IsRequired();

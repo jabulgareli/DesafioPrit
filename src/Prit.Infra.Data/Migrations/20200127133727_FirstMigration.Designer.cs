@@ -9,8 +9,8 @@ using Prit.Infra.Data;
 namespace Prit.Infra.Data.Migrations
 {
     [DbContext(typeof(PritContext))]
-    [Migration("20200127121428_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20200127133727_FirstMigration")]
+    partial class FirstMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -29,6 +29,10 @@ namespace Prit.Infra.Data.Migrations
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasMaxLength(150);
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(50);
 
                     b.Property<decimal>("Price")
                         .HasColumnType("DECIMAL(14,2)");

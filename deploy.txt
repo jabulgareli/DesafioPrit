@@ -1,0 +1,2 @@
+docker build -f src\Prit.Portal\DOCKERFILE -t jabulgareli/prit-api .
+docker push jabulgareli/prit-api

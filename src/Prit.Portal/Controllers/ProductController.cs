@@ -4,17 +4,21 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using Prit.Application.Interfaces;
+using Prit.Portal.Models.Products;
 
 namespace Prit.Portal.Controllers
 {
     public class ProductController : Controller
     {
         private readonly IProductAppService _productAppService;
+        private readonly ILogger<ProductController> _logger;
 
-        public ProductController(IProductAppService productAppService)
+        public ProductController(IProductAppService productAppService, ILogger<ProductController> logger)
         {
             _productAppService = productAppService;
+            _logger = logger;
         }
 
         public async Task<IActionResult> Index()
@@ -24,78 +28,41 @@ namespace Prit.Portal.Controllers
             return View(products);
         }
 
-        // GET: Product/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
 
-        // GET: Product/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: Product/Create
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public async Task<ActionResult> Upsert([FromBody]CreateOrUpdateProductViewModel product)
         {
             try
             {
-                // TODO: Add insert logic here
+                if (!ModelState.IsValid)
+                    return BadRequest(product);
 
-                return RedirectToAction(nameof(Index));
+                await _productAppService.AddOrUpdateAsync(product.AsProduct());
+                return Ok();
             }
-            catch
+            catch (Exception ex)
             {
-                return View();
+                _logger.LogError(ex, ex.Message);
+                return StatusCode(StatusCodes.Status500InternalServerError);
             }
+            
         }
-
-        // GET: Product/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        // POST: Product/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        
+        [HttpDelete]
+        public async Task<ActionResult> Delete([FromQuery]int id)
         {
             try
             {
-                // TODO: Add update logic here
+                if (id <= 0)
+                    return BadRequest(id); 
 
-                return RedirectToAction(nameof(Index));
+                await _productAppService.RemoveAsync(id);
+                return Ok();
             }
-            catch
+            catch (Exception ex)
             {
-                return View();
-            }
-        }
-
-        // GET: Product/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: Product/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
+                _logger.LogError(ex, ex.Message);
+                return StatusCode(StatusCodes.Status500InternalServerError);
             }
         }
     }

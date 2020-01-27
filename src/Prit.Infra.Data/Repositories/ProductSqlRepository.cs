@@ -42,16 +42,17 @@ namespace Prit.Infra.Data.Repositories
             return await _context.Products.ToListAsync();
         }
 
-        public async Task Remove(int id)
+        public async Task RemoveAsync(int id)
         {
             var current = await _context.Products.FirstOrDefaultAsync(p => p.Id == id);
 
-            if (!(current is null))
+            if (current is null)
             {
-                _context.Remove(current);
-                await _context.SaveChangesAsync();
                 return;
             }
+
+            _context.Remove(current);
+            await _context.SaveChangesAsync();
         }
     }
 }

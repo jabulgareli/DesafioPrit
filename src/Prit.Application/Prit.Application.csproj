@@ -5,8 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Interfaces\" />
-    <Folder Include="Services\" />
+    <ProjectReference Include="..\Prit.Domain\Prit.Domain.csproj" />
   </ItemGroup>
 
 </Project>
