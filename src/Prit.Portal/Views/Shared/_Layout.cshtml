@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Portal Prit</title>
+
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                    <svg width="42px" height="42px" viewBox="0 0 357 176" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <!-- Generator: Sketch 55.2 (78181) - https://sketchapp.com -->
+                        <title>Logo</title>
+                        <desc>Created with Sketch.</desc>
+                        <defs>
+                            <path d="M-0.0001,28.7863 C-0.0001,13.6543 12.3637464,1.2743 27.4737827,1.2743 L53.9750149,1.2743 C86.2112903,1.2743 114.255382,27.6583 114.790639,59.9493 C115.343872,93.2983 88.5730137,120.4393 55.4050309,120.4103 C51.0550661,120.4053 47.4989998,124.1123 47.4989998,128.4703 L47.4989998,140.3503 C47.4989998,159.9523 31.48322,175.9903 11.9073796,175.9903 C5.35846553,175.9903 -0.0001,170.6243 -0.0001,164.0663 L-0.0001,28.7863 Z M199.247464,70.9723 C200.85024,77.1433 198.311762,83.6493 192.955194,87.0853 L178.485269,96.3683 C175.097969,98.5513 172.439657,102.4333 172.439657,106.8003 L172.439657,164.0153 C172.439657,170.6063 167.065114,176.0003 160.497226,176.0003 L136.769146,176.0003 C130.201259,176.0003 124.826715,170.6063 124.826715,164.0153 L124.826715,86.0993 C124.826715,71.1943 136.977857,59.0003 151.831249,59.0003 L183.806886,59.0003 C191.067812,59.0003 197.414008,63.9203 199.247464,70.9723 L199.247464,70.9723 Z M247.792113,176.0003 L222.556126,176.0003 C216.027184,176.0003 210.707564,170.6613 210.707564,164.1093 L210.707564,70.8903 C210.707564,64.3383 216.027184,59.0003 222.556126,59.0003 L247.792113,59.0003 C254.320056,59.0003 259.639676,64.3383 259.639676,70.8903 L259.639676,164.1093 C259.639676,170.6613 254.320056,176.0003 247.792113,176.0003 L247.792113,176.0003 Z M235.550098,48.0003 C222.410328,48.0003 211.706179,37.0353 211.706179,23.8783 C211.706179,10.7213 222.410328,0.0003 235.550098,0.0003 C248.689868,0.0003 259.639676,10.7213 259.639676,23.8783 C259.639676,37.0353 248.689868,48.0003 235.550098,48.0003 L235.550098,48.0003 Z M275.32791,45.7043 C275.32791,38.8723 277.804474,32.2743 282.294245,27.1433 L302.607063,3.9263 C303.390975,3.1583 304.307703,2.5333 305.328287,2.1313 C306.653449,1.6113 308.128403,1.2733 309.605353,1.2733 C316.099344,1.2733 321.392999,6.5903 321.392999,13.1153 L321.392999,34.2073 C321.392999,38.8653 325.151784,42.6403 329.78935,42.6403 L344.117471,42.6403 C347.954148,42.6403 351.7369,44.1603 354.198485,47.1203 C359.43522,53.4203 356.737962,62.0333 350.982946,65.1153 L325.483324,79.1293 C323.077662,80.5793 321.392999,83.2383 321.392999,86.1373 L321.392999,164.1483 C321.392999,170.6743 313.763584,176.2653 309.605353,175.9903 C295.013598,175.0263 275.32791,154.7243 275.32791,128.3843 L275.32791,45.7043 Z" id="path-1"></path>
+                        </defs>
+                        <g id="Components-" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                            <g id="Logos-/-Prit">
+                                <mask id="mask-2" fill="white">
+                                    <use xlink:href="#path-1"></use>
+                                </mask>
+                                <use id="Logo" fill="#000000" xlink:href="#path-1"></use>
+                            </g>
+                        </g>
+                    </svg>
+                </a>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="navbar-collapse collapse d-sm-inline-flex">
+                        <ul class="navbar-nav flex-grow-1">
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Product" asp-action="Index">Produtos</a>
+                            </li>
+                        </ul>
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    @User.Identity.Name
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    <a class="dropdown-item" asp-controller="Auth" asp-action="Logout">Sair</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                }
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <partial name="_CookieConsentPartial" />
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; @DateTime.Now.Year - Portal Prit - João Antonio Bulgareli
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,36 @@
+﻿@model Prit.Portal.Models.LoginViewModel
+
+@{
+    ViewData["Title"] = "Entrar";
+}
+
+<form class="form-signin" asp-controller="Auth" asp-action="Login">
+    <div class="row text-center">
+        <div class="col-12">
+            <h3>Olá novamente</h3>
+        </div>
+        <div class="col-12">
+            <h6>Entre no portal para ter acesso à todo gerenciamento</h6>
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <input asp-for="@Model.Email" class="form-control" placeholder="Email" autofocus />
+        <span asp-validation-for="@Model.Email" class="text-danger"></span>
+
+
+        <input asp-for="@Model.Password" type="password" class="form-control" placeholder="Senha" />
+        <span asp-validation-for="@Model.Password" class="text-danger"></span>
+
+    </div>
+    <div class="row text-center mt-4">
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
+    </div>
+</form>
+
+<div class="row text-center mt-4">
+    <div class="col-12">
+        <p>Novo por aqui? <a asp-controller="Auth" asp-action="Create">Cadastre-se</a></p>
+    </div>
+</div>

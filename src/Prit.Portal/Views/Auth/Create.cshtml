@@ -1,0 +1,37 @@
+﻿@model Prit.Portal.Models.NewUserViewModel
+
+@{
+    ViewData["Title"] = "Novo usuário";
+}
+<div class="form-signin">
+    <form asp-controller="Auth" asp-action="Create">
+        <div class="row text-center">
+            <div class="col-12">
+                <h3>Aproveite todas as funcionalidades do nosso portal</h3>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <input asp-for="@Model.Name" class="form-control" placeholder="Nome completo" />
+            <span asp-validation-for="@Model.Name" class="text-danger"></span>
+
+            <input asp-for="@Model.Email" class="form-control" placeholder="Email" />
+            <span asp-validation-for="@Model.Email" class="text-danger"></span>
+
+
+            <input asp-for="@Model.Password" type="password" class="form-control" placeholder="Senha" />
+            <span asp-validation-for="@Model.Password" class="text-danger"></span>
+
+        </div>
+        <div class="row mt-4">
+            <input type="submit" value="Registrar" class="btn btn-primary btn-block" />
+        </div>
+    </form>
+</div>
+
+<div class="row text-center mt-4">
+    <div class="col-12">
+        <p>Já tem cadastro? <a asp-controller="Auth" asp-action="Index">Entre</a></p>
+    </div>
+</div>
